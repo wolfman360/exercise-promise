@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Question
 
 ## Investor Meeting and Annual Driver Conference
@@ -93,3 +94,6 @@ A sample format is shown
   // ,...{}, {}
 ]
 ```
+=======
+# exercise-promise
+>>>>>>> bc9b5daeec105716fb87d3b65dfb29e82304fc8f
