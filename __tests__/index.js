@@ -1,4 +1,7 @@
-const { analysis, driverReport } = require('../src/index');
+const {
+  analysis,
+  driverReport
+} = require('../src/index');
 
 describe('analysis spec', () => {
   test('matches the required data format', async () => {
@@ -41,14 +44,37 @@ describe('analysis spec', () => {
   });
 });
 
-describe('driver report', () => {
-  test('matches the required data format', async () => {
-    await expect('todo').toBe('todo');
+
+describe('driver report to be defined', () => {
+  test('expects driverReport to be Defined', async () => {
+    await expect(driverReport).toBeDefined();
+  });
+});
+describe('driver report array should have length of nine', () => {
+  test('should return nine', async () => {
+    let report = await driverReport();
+    expect(report).toHaveLength(9);
+  });
+});
+describe('driver report to have property', () => {
+  test('expects driverReport to return array of an object with certain properties', async () => {
+     let report = await driverReport();
+   
+    expect(report).toContainEqual({
+      fullName: expect.any(String),
+      id: expect.any(String),
+      phone: expect.any(String),
+      noOfTrips: expect.any(Number),
+      noOfVehicles: expect.any(Number),
+      vehicles: expect.any(Array),
+      noOfCashTrips: expect.any(Number),
+      noOfNonCashTrips: expect.any(Number),
+      totalAmountEarned: expect.any(Number),
+      totalCashAmount: expect.any(Number),
+      totalNonCashAmount: expect.any(Number),
+      trips: expect.any(Array)
+
+    });
   });
 });
 
-describe('My own tests go here - I should update this description', () => {
-  test('something', () => {
-    expect(true).toEqual(true);
-  });
-});
