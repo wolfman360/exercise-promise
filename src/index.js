@@ -21,7 +21,9 @@ async function analysis() {
     trips = await getTrips();
     driversID = trips.map(currentValue => currentValue.driverID);
     unqieDriversID = [...new Set(driversID)];
-  } catch (error) {}
+  } catch (error) {
+    console.error(error.message);
+  }
 
   for (value of unqieDriversID) {
     try {
@@ -135,7 +137,9 @@ async function driverReport() {
    trips = await getTrips();
    driversID = trips.map(currentValue => currentValue.driverID);
    unqieDriversID = [...new Set(driversID)];
- } catch (error) {}
+ } catch (error) {
+   console.error(error.message);
+ }
 
  for (value of unqieDriversID) {
    try {
@@ -218,7 +222,7 @@ async function driverReport() {
        manufacturer,
        plate
      });
-   } catch (e) {}
+   } catch (error) { console.error(error);}
  }
  report = [];
  for ([key, value] of allDriverDetails) {

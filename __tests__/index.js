@@ -45,36 +45,36 @@ describe('analysis spec', () => {
 });
 
 
-describe('driver report to be defined', () => {
-  test('expects driverReport to be Defined', async () => {
-    await expect(driverReport).toBeDefined();
+describe('driver report test', () => {
+  beforeEach(async () => {
+    report = await driverReport(); 
+   });
+  test('expects driverReport to be Defined',  () => {
+     expect(driverReport).toBeDefined();
   });
-});
-describe('driver report array should have length of nine', () => {
-  test('should return nine', async () => {
-    let report = await driverReport();
-    expect(report).toHaveLength(9);
-  });
-});
-describe('driver report to have property', () => {
-  test('expects driverReport to return array of an object with certain properties', async () => {
-     let report = await driverReport();
-   
-    expect(report).toContainEqual({
-      fullName: expect.any(String),
-      id: expect.any(String),
-      phone: expect.any(String),
-      noOfTrips: expect.any(Number),
-      noOfVehicles: expect.any(Number),
-      vehicles: expect.any(Array),
-      noOfCashTrips: expect.any(Number),
-      noOfNonCashTrips: expect.any(Number),
-      totalAmountEarned: expect.any(Number),
-      totalCashAmount: expect.any(Number),
-      totalNonCashAmount: expect.any(Number),
-      trips: expect.any(Array)
 
+    test('should return nine',  () => {
+      expect(report).toHaveLength(9);
+    });
+
+    test('expects driverReport to return array of an object with certain properties',  () => {
+   
+      expect(report).toContainEqual({
+        fullName: expect.any(String),
+        id: expect.any(String),
+        phone: expect.any(String),
+        noOfTrips: expect.any(Number),
+        noOfVehicles: expect.any(Number),
+        vehicles: expect.any(Array),
+        noOfCashTrips: expect.any(Number),
+        noOfNonCashTrips: expect.any(Number),
+        totalAmountEarned: expect.any(Number),
+        totalCashAmount: expect.any(Number),
+        totalNonCashAmount: expect.any(Number),
+        trips: expect.any(Array)
+
+      });
     });
   });
-});
+
 
