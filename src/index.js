@@ -220,7 +220,7 @@ async function driverReport() {
      });
    } catch (e) {}
  }
- result = [];
+ report = [];
  for ([key, value] of allDriverDetails) {
    for (value2 of value.vehicleID) {
      if (vehicleDetails.has(value2) && allDriverDetails.has(key)) {
@@ -231,12 +231,11 @@ async function driverReport() {
 
    }
    delete value.vehicleID;
-   result.push(value);
+   report.push(value);
 
  }
- console.log(result);
+ return report;
 }
-driverReport()
 module.exports = {
   analysis,
   driverReport
