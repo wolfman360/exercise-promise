@@ -21,7 +21,9 @@ async function analysis() {
     trips = await getTrips();
     driversID = trips.map(currentValue => currentValue.driverID);
     unqieDriversID = [...new Set(driversID)];
-  } catch (error) {}
+  } catch (error) {
+    console.error(error.message);
+  }
 
   for (value of unqieDriversID) {
     try {
@@ -135,7 +137,9 @@ async function driverReport() {
    trips = await getTrips();
    driversID = trips.map(currentValue => currentValue.driverID);
    unqieDriversID = [...new Set(driversID)];
- } catch (error) {}
+ } catch (error) {
+   console.error(error.message);
+ }
 
  for (value of unqieDriversID) {
    try {
@@ -218,9 +222,9 @@ async function driverReport() {
        manufacturer,
        plate
      });
-   } catch (e) {}
+   } catch (error) { console.error(error);}
  }
- result = [];
+ report = [];
  for ([key, value] of allDriverDetails) {
    for (value2 of value.vehicleID) {
      if (vehicleDetails.has(value2) && allDriverDetails.has(key)) {
@@ -231,12 +235,11 @@ async function driverReport() {
 
    }
    delete value.vehicleID;
-   result.push(value);
+   report.push(value);
 
  }
- console.log(result);
+ return report;
 }
-driverReport()
 module.exports = {
   analysis,
   driverReport
